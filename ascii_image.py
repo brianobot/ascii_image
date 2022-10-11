@@ -1,9 +1,8 @@
-import PIL.Image
 import sys
+import PIL.Image
 from datetime import datetime
 
 ASCII_CHARS = ["@", "#", '$', "%", "&", "?", "+",";", ":", ",", "."]
-
 
 def resize_image(image, new_width=100):
     width, height = image.size
@@ -24,23 +23,28 @@ def pixel_to_ascii(image):
 
 def main(new_width=100):
     if len(sys.argv) > 1:
-        path = sys.argv[1]
+        files = sys.argv[1:]
     else:
-        path = input("Enter a valid path to image: \n")
+        path = input("Enter a valid path to image: ")
+        files = path.split(" ")
+    images = []
     try:
-        image = PIL.Image.open(path)
+        for file in files:
+            image = PIL.Image.open(file)
+            images.append(image)
     except: 
-        print(path, ' is not a valid pathname to an image')  
+        print(file, ' is not a valid pathname to an image')  
     else:
-        new_image_data = pixel_to_ascii(grayify(resize_image(image)))
+        for index, image in enumerate(images):
+            new_image_data = pixel_to_ascii(grayify(resize_image(image)))
 
-        pixel_count = len(new_image_data)
-        ascii_image = "\n".join(new_image_data[i:(i+new_width)] for i in range(0, pixel_count, new_width))
+            pixel_count = len(new_image_data)
+            ascii_image = "\n".join(new_image_data[i:(i+new_width)] for i in range(0, pixel_count, new_width))
 
-        print(ascii_image)
+            print(ascii_image)
 
-        with open('new_image.txt', "w") as file:
-            file.write(ascii_image)
+            with open(f'{str(datetime.today().date())}_{index + 1}.txt', "w") as file:
+                file.write(ascii_image)
 
     
 if __name__ == "__main__":
