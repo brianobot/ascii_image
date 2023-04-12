@@ -53,7 +53,9 @@ Pure Python script to generate ascii image art from a picture.
      ```python
      pip install -r requirements.txt
      ```
-5. Copy the script into the directory that contains the image you wish to work on
+5. 
+   - ### Run the script from the Command Line  
+   Copy the script into the directory that contains the image you wish to work on
    and run the command below.
 
    ```python
@@ -64,6 +66,12 @@ Pure Python script to generate ascii image art from a picture.
    ```python
    python ascii_image.py my_image.jpeg
    ```
+
+   - ### Run the script directly
+   Copy the script into the directory that contains the image you wish to work on and 
+   double click on the script to run it directly.
+
+   *Follow the prompts on the screen to execute the tasks properly*
 
 ## Contribution and Issue Report
 If you run into a bug while using this program, you can report the issue to the maintainer via a mail.<br/>
