@@ -7,7 +7,9 @@ ASCII_CHARS = ["@", "#", '$', "%", "&", "?", "+",";", ":", ",", "."]
 
 
 def resize_image(image, new_width=100):
-    """function to resize an image object."""
+    """
+    function to resize an image object.
+    """
     width, height = image.size
     ratio = height/width
     new_height = int(new_width * ratio)
@@ -29,7 +31,9 @@ def pixel_to_ascii(image):
 
 
 def main(new_width=100):
-    """Main function starts program execution."""
+    """
+    Main function starts program execution.
+    """
     if len(sys.argv) > 1:
         files = sys.argv[1:]
     else:
